@@ -1,5 +1,5 @@
-angular.module('ngAFIP', [])
-.service('AFIP', function($http){
+var ngAFIP = angular.module('ngAFIP', []);
+ngAFIP.service('AFIP', function($http){
 	var defaults = {
 		api : 'https://soa.afip.gob.ar/sr-padron/v2/persona/'
 	}
@@ -9,4 +9,8 @@ angular.module('ngAFIP', [])
 		url = url + parm;
 		$http.get(url).success(success).error(error);
 	}
+});
+ngAFIP.factory('AFIPfc', function(AFIP){
+	var f = {};
+	return f;
 });
